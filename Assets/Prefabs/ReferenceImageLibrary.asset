@@ -12,8 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
   m_Name: ReferenceImageLibrary
   m_EditorClassIdentifier: 
-  m_GuidLow: 0
-  m_GuidHigh: 0
+  m_GuidLow: 5531185002186165128
+  m_GuidHigh: 11768103956090499260
   m_DataStore:
     m_Storage: []
-  m_Images: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5038473451709481552
+      m_GuidHigh: 10030954705376202632
+    m_SerializedTextureGuid:
+      m_GuidLow: 12552665641556663803
+      m_GuidHigh: 16599085927164763739
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Bluegill
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5059091991498219777
+      m_GuidHigh: 3774289774738411399
+    m_SerializedTextureGuid:
+      m_GuidLow: 10075758959463948982
+      m_GuidHigh: 13888272045661761163
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Crappie
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4864184942478044236
+      m_GuidHigh: 14856282642884234891
+    m_SerializedTextureGuid:
+      m_GuidLow: 16119779681027443138
+      m_GuidHigh: 10589985135464747017
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Trout
+    m_Texture: {fileID: 0}
