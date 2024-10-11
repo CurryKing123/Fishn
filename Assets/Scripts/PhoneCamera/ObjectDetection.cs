@@ -73,6 +73,7 @@ public class ObjectDetection : MonoBehaviour
 
             categorizations.Sort((a, b) => b.Confidence.CompareTo(a.Confidence));
             var categoryToDisplay = categorizations[0];
+            confidence = categoryToDisplay.Confidence;
             name = categoryToDisplay.CategoryName;
 
             int h = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.height);
