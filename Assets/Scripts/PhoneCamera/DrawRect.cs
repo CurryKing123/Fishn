@@ -23,6 +23,7 @@ public class DrawRect : MonoBehaviour
 
         UIRectObject rectObject = rectObjects[index];
         rectObject.SetRectTransform(rect);
+        rectObject.SetColor(color);
         rectObject.SetText(text);
         rectObject.gameObject.SetActive(true);
     }

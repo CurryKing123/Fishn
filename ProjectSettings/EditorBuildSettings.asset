@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PhoneCamera.unity
     guid: 8ee30de5829a284448d374708381a050
+  - enabled: 1
+    path: Assets/Scenes/LightshipTest.unity
+    guid: 06208195c8a70014e922b0ef85238321
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: a8dccb536465da0499b7ab46b016ac00, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: e63a6afb7f6c540b3a0bcc12796dd19c, type: 2}
