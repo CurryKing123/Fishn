@@ -19,7 +19,7 @@ public class DrawRect : MonoBehaviour
 
         int index = openIndices[0];
 
-        openIndices.Remove(item: 0);
+        openIndices.Remove(0);
 
         UIRectObject rectObject = rectObjects[index];
         rectObject.SetRectTransform(rect);
