@@ -12,7 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PhoneCamera.unity
     guid: 8ee30de5829a284448d374708381a050
   m_configObjects:
+    Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: a8dccb536465da0499b7ab46b016ac00, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: e63a6afb7f6c540b3a0bcc12796dd19c, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 48d5e7e516df84155aec89279cb56013, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 8308cf45a519647bf9c469dfeb6e5b27, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7ddb0a5ffb14e4f99a5018e4fc865bc1, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4ab58b38309f0364a8f7fe0cb3dfc3a5, type: 2}

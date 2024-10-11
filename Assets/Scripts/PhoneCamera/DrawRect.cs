@@ -22,7 +22,7 @@ public class DrawRect : MonoBehaviour
         openIndices.Remove(item: 0);
 
         UIRectObject rectObject = rectObjects[index];
-        rectObject.SetRectTranfsorm(rect);
+        rectObject.SetRectTransform(rect);
         rectObject.SetText(text);
         rectObject.gameObject.SetActive(true);
     }

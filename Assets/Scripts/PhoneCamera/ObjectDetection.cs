@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Niantic.Lightship.AR.ObjectDetection;
 using UnityEngine;
 
-public class ObjectDetectionSample : MonoBehaviour
+public class ObjectDetection : MonoBehaviour
 {
     [SerializeField] float probabilityThreshold = .5f;
     [SerializeField] private ARObjectDetectionManager objectDetectionManager;
