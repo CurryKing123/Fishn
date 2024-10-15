@@ -9,7 +9,7 @@ public class ObjectDetection : MonoBehaviour
     [SerializeField] float probabilityThreshold = .5f;
     [SerializeField] private ARObjectDetectionManager objectDetectionManager;
 
-    private Color[] colors = new Color[]
+    private Color[] colors = new[]
     {
         Color.red,
         Color.green,
@@ -52,18 +52,18 @@ public class ObjectDetection : MonoBehaviour
         string resultString = "";
         float confidence = 0;
         string rectName = "";
-        var results = args.Results;
+        var result = args.Results;
 
-        if (results == null)
+        if (result == null)
         {
             return;
         }
 
         drawRect.ClearRects();
 
-        for (int i = 0; i < results.Count; i++)
+        for (int i = 0; i < result.Count; i++)
         {
-            var detection = results[i];
+            var detection = result[i];
             var categorizations = detection.GetConfidentCategorizations(probabilityThreshold);
 
             if (categorizations.Count <= 0)
@@ -79,11 +79,9 @@ public class ObjectDetection : MonoBehaviour
             int h = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.height);
             int w = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.width);
 
-            var rect = results[i].CalculateRect(w, h, Screen.orientation);
+            var rect = result[i].CalculateRect(w, h, Screen.orientation);
 
             resultString = $"{rectName}: {confidence}\n";
-
-            Debug.Log(resultString);
 
             drawRect.CreateRect(rect, colors[i % colors.Length], resultString);
         }
