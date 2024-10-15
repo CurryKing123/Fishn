@@ -83,6 +83,8 @@ public class ObjectDetection : MonoBehaviour
 
             resultString = $"{rectName}: {confidence}\n";
 
+            Debug.Log(resultString);
+
             drawRect.CreateRect(rect, colors[i % colors.Length], resultString);
         }
     }
