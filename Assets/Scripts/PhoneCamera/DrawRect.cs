@@ -14,6 +14,8 @@ public class DrawRect : MonoBehaviour
         if(openIndices.Count == 0)
         {
             var newRect = Instantiate(rectanglePrefab, parent: transform).GetComponent<UIRectObject>();
+
+            rectObjects.Add(newRect);
             openIndices.Add(rectObjects.Count - 1);
         }
 
