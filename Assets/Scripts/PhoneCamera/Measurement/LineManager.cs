@@ -18,7 +18,10 @@ public class LineManager : MonoBehaviour
 
     private void DrawLine(ARObjectPlacementEventArgs args)
     {
+        //Increase point count
         lineRenderer.positionCount++;
+
+        //Set point locations
         lineRenderer.SetPosition(lineRenderer.positionCount-1, args.placementObject.transform.position);
         if (lineRenderer.positionCount > 1)
         {
