@@ -76,7 +76,7 @@ public class ObjectDetection : MonoBehaviour
             confidence = categoryToDisplay.Confidence;
             rectName = categoryToDisplay.CategoryName;
 
-            if (rectName != "Fish")
+            if (rectName != "fish")
             {
                 break;
             }

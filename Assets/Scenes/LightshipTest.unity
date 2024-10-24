@@ -623,7 +623,7 @@ MonoBehaviour:
   _semanticSegmentationManager: {fileID: 1175164399}
   _isFilteringAllowListEnabled: 1
   _allowList:
-  - 
+  - fish
   _isFilteringBlockListEnabled: 1
   _blockList:
   - ground
