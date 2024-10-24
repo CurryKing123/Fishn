@@ -557,6 +557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1016423853}
   - component: {fileID: 1016423854}
+  - component: {fileID: 1016423855}
   m_Layer: 0
   m_Name: MeshManager
   m_TagString: Untagged
@@ -598,6 +599,38 @@ MonoBehaviour:
   m_TextureCoordinates: 0
   m_Colors: 0
   m_ConcurrentQueueSize: 4
+--- !u!114 &1016423855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016423852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86b456713bd4d4c31b3cb04c67d82381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetFrameRate: 10
+  _fuseKeyframesOnly: 0
+  _maximumIntegrationDistance: 5
+  _voxelSize: 0.025
+  _enableDistanceBasedVolumetricCleanup: 1
+  _meshBlockSize: 1.4
+  _meshCullingDistance: 0
+  _enableMeshDecimation: 1
+  _isMeshFilteringEnabled: 1
+  _semanticSegmentationManager: {fileID: 1175164399}
+  _isFilteringAllowListEnabled: 1
+  _allowList:
+  - 
+  _isFilteringBlockListEnabled: 1
+  _blockList:
+  - ground
+  - person
+  - sky
+  _enableLevelsOfDetail: 0
+  _levelsOfDetail: 1
 --- !u!1 &1175164389
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,9 +645,10 @@ GameObject:
   - component: {fileID: 1175164394}
   - component: {fileID: 1175164393}
   - component: {fileID: 1175164392}
-  - component: {fileID: 1175164391}
   - component: {fileID: 1175164397}
   - component: {fileID: 1175164398}
+  - component: {fileID: 1175164391}
+  - component: {fileID: 1175164399}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -850,7 +884,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175164389}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68a076e7dedf4411b96ca259dc65ce59, type: 3}
   m_Name: 
@@ -915,6 +949,19 @@ MonoBehaviour:
   m_EnvironmentDepthMode: 1
   m_EnvironmentDepthTemporalSmoothing: 1
   m_OcclusionPreferenceMode: 0
+--- !u!114 &1175164399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175164389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428eb62726fd471a8ae41b9d299b2c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetFrameRate: 2
 --- !u!1 &1224673360
 GameObject:
   m_ObjectHideFlags: 0
