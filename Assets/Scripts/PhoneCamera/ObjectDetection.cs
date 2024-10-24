@@ -76,6 +76,11 @@ public class ObjectDetection : MonoBehaviour
             confidence = categoryToDisplay.Confidence;
             rectName = categoryToDisplay.CategoryName;
 
+            if (rectName != "Fish")
+            {
+                break;
+            }
+
             int h = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.height);
             int w = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.width);
 
