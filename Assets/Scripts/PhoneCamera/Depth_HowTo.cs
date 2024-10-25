@@ -2,35 +2,36 @@
     using UnityEngine;
     using UnityEngine.XR.ARFoundation;
     using Niantic.Lightship.AR.Utilities;
-    using UnityEngine.UI;
-using Niantic.Lightship.AR.Occlusion;
 
-public class Depth_HowTo : MonoBehaviour
+    public class Depth_HowTo : MonoBehaviour
     {
         public AROcclusionManager _occlusionManager;
-        public LightshipOcclusionExtension _occlusionExtension;
-        public RawImage _rawImage;
-        public Material _material;
 
-          
-    void Update()
-    {
-        if (!_occlusionManager.subsystem.running)
+        void Update()
         {
-            return;
+            if (!_occlusionManager.subsystem.running)
+            {
+                return;
+            }
+            
+            // get the depth texture from AR Foundation
+            // it should have the same aspect ratio as the background image
+            var depthTexture = _occlusionManager.environmentDepthTexture;
+            
+            // we can't guarantee the layout of the camera's display matrix because it varies by platform
+            // so instead we calculate it ourselves using the CameraMath library
+            var displayMatrix = CameraMath.CalculateDisplayMatrix
+            (
+                depthTexture.width,
+                depthTexture.height,
+                Screen.width,
+                Screen.height,
+                XRDisplayContext.GetScreenOrientation()
+            );
+            
+            // Do something with the texture
+            // ...
+            Debug.Log($"Width: {depthTexture.width} Height: {depthTexture.height}");
+
         }
-
-        //add our material to the raw image
-        _rawImage.material = _material;
-        
-        // set the depth texture and display matrix
-        var depthTexture = _occlusionExtension.DepthTexture;
-        var displayMatrix = _occlusionExtension.DepthTransform;
-
-        //set our variables for the shader
-        //NOTE: Updating the depth texture needs to happen in the Update() function
-        _rawImage.material.SetTexture("_DepthTex", depthTexture);
-        _rawImage.material.SetMatrix("_DepthTransform", displayMatrix);
     }
-
-}

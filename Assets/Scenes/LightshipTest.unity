@@ -978,9 +978,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _occlusionManager: {fileID: 1175164398}
-  _occlusionExtension: {fileID: 1175164401}
-  _rawImage: {fileID: 1206077663}
-  _material: {fileID: 2100000, guid: 48d7b3634e092f54b858850750971ae7, type: 2}
 --- !u!114 &1175164401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,7 +1020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1206077662
 RectTransform:
   m_ObjectHideFlags: 0
