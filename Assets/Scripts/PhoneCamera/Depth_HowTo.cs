@@ -31,7 +31,6 @@
             
             // Do something with the texture
             // ...
-            Debug.Log($"Width: {depthTexture.width} Height: {depthTexture.height}");
 
         }
     }

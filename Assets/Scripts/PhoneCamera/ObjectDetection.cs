@@ -9,6 +9,7 @@ public class ObjectDetection : MonoBehaviour
     [SerializeField] float probabilityThreshold = .5f;
     [SerializeField] private ARObjectDetectionManager objectDetectionManager;
 
+
     private Color[] colors = new[]
     {
         Color.red,
