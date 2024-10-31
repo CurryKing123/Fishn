@@ -1123,7 +1123,7 @@ MonoBehaviour:
   probabilityThreshold: 0.5
   objectDetectionManager: {fileID: 1175164391}
   pointCloudManager: {fileID: 2043808522}
-  arRaycastManager: {fileID: 0}
+  arRaycastManager: {fileID: 2043808520}
   raycastInBox: {fileID: 0}
   drawRect: {fileID: 2135129653}
 --- !u!114 &1224673363
@@ -1460,6 +1460,7 @@ GameObject:
   - component: {fileID: 2043808520}
   - component: {fileID: 2043808521}
   - component: {fileID: 2043808522}
+  - component: {fileID: 2043808523}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -1558,6 +1559,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PointCloudPrefab: {fileID: 2386303640517764506, guid: 6ceaa4f572dcd614abb23df4146fdb7d, type: 3}
+--- !u!114 &2043808523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043808516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e815e2d5c6b7f5343a7d4d9fb36b441f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aRRaycastManager: {fileID: 2043808520}
+  aRPointCloudManager: {fileID: 2043808522}
+  objectDetection: {fileID: 1224673362}
+  mainCamera: {fileID: 1175164396}
 --- !u!1 &2135129651
 GameObject:
   m_ObjectHideFlags: 0
