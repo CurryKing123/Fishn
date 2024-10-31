@@ -10,9 +10,9 @@ public class ObjectDetection : MonoBehaviour
 {
     [SerializeField] float probabilityThreshold = .5f;
     [SerializeField] private ARObjectDetectionManager objectDetectionManager;
-    [SerializeField] private ARPointCloudManager pointCloudManager;
-    [SerializeField] private ARRaycastManager arRaycastManager;
-    [SerializeField] private RaycastInBox raycastInBox;
+    //[SerializeField] private ARPointCloudManager pointCloudManager;
+    //[SerializeField] private ARRaycastManager arRaycastManager;
+    //[SerializeField] private RaycastInBox raycastInBox;
 
 
     private Color[] colors = new[]
@@ -43,7 +43,7 @@ public class ObjectDetection : MonoBehaviour
         objectDetectionManager.enabled = true;
         objectDetectionManager.MetadataInitialized += ObjectDetectionManagerOnMetadataInitialized;
 
-        raycastInBox = new RaycastInBox();
+        //raycastInBox = new RaycastInBox();
     }
 
     private void ObjectDetectionManagerOnMetadataInitialized(ARObjectDetectionModelEventArgs args)
@@ -55,7 +55,7 @@ public class ObjectDetection : MonoBehaviour
     {
         objectDetectionManager.MetadataInitialized -= ObjectDetectionManagerOnMetadataInitialized;
         objectDetectionManager.ObjectDetectionsUpdated -= ObjectDetectionManagerOnObjectDetectionUpdated;
-        pointCloudManager.enabled = false;
+        //pointCloudManager.enabled = false;
     }
 
     private void ObjectDetectionManagerOnObjectDetectionUpdated(ARObjectDetectionsUpdatedEventArgs args)
@@ -99,9 +99,9 @@ public class ObjectDetection : MonoBehaviour
 
                 drawRect.CreateRect(rect, colors[i % colors.Length], resultString);
 
-                raycastInBox.RaycastFromDetectedPosition(rect.position);
+                //raycastInBox.RaycastFromDetectedPosition(rect.position);
 
-                pointCloudManager.enabled = true;
+                //pointCloudManager.enabled = true;
 
                 //fishPosition?.Invoke((categoryToDisplay.CategoryName, rect.position));
             }

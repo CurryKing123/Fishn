@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     //Change to Camera Scene
     public void CameraScene()
     {
-        SceneManager.LoadScene("LightshipTest");
+        SceneManager.LoadScene("LightshipTest 2");
     }
 
     //

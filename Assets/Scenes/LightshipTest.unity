@@ -1124,7 +1124,7 @@ MonoBehaviour:
   objectDetectionManager: {fileID: 1175164391}
   pointCloudManager: {fileID: 2043808522}
   arRaycastManager: {fileID: 2043808520}
-  raycastInBox: {fileID: 0}
+  raycastInBox: {fileID: 2043808523}
   drawRect: {fileID: 2135129653}
 --- !u!114 &1224673363
 MonoBehaviour:
