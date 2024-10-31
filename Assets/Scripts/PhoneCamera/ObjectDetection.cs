@@ -2,12 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Niantic.Lightship.AR.ObjectDetection;
+using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class ObjectDetection : MonoBehaviour
 {
     [SerializeField] float probabilityThreshold = .5f;
     [SerializeField] private ARObjectDetectionManager objectDetectionManager;
+    [SerializeField] private ARPointCloudManager pointCloudManager;
+    [SerializeField] private ARRaycastManager arRaycastManager;
+    [SerializeField] private RaycastInBox raycastInBox;
 
 
     private Color[] colors = new[]
@@ -22,6 +27,8 @@ public class ObjectDetection : MonoBehaviour
         Color.black
     };
 
+    //public static event Action<(string category, Vector2 rectPosition)> fishPosition;
+
     [SerializeField] private DrawRect drawRect;
 
     private Canvas canvas;
@@ -35,6 +42,8 @@ public class ObjectDetection : MonoBehaviour
     {
         objectDetectionManager.enabled = true;
         objectDetectionManager.MetadataInitialized += ObjectDetectionManagerOnMetadataInitialized;
+
+        raycastInBox = new RaycastInBox();
     }
 
     private void ObjectDetectionManagerOnMetadataInitialized(ARObjectDetectionModelEventArgs args)
@@ -46,6 +55,7 @@ public class ObjectDetection : MonoBehaviour
     {
         objectDetectionManager.MetadataInitialized -= ObjectDetectionManagerOnMetadataInitialized;
         objectDetectionManager.ObjectDetectionsUpdated -= ObjectDetectionManagerOnObjectDetectionUpdated;
+        pointCloudManager.enabled = false;
     }
 
     private void ObjectDetectionManagerOnObjectDetectionUpdated(ARObjectDetectionsUpdatedEventArgs args)
@@ -77,19 +87,24 @@ public class ObjectDetection : MonoBehaviour
             confidence = categoryToDisplay.Confidence;
             rectName = categoryToDisplay.CategoryName;
 
-            if (rectName != "fish")
+            if (rectName == "fish")
             {
-                break;
+                int h = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.height);
+                int w = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.width);
+
+                var rect = result[i].CalculateRect(w, h, Screen.orientation);
+
+
+                resultString = $"{rectName}: {confidence}\n";
+
+                drawRect.CreateRect(rect, colors[i % colors.Length], resultString);
+
+                raycastInBox.RaycastFromDetectedPosition(rect.position);
+
+                pointCloudManager.enabled = true;
+
+                //fishPosition?.Invoke((categoryToDisplay.CategoryName, rect.position));
             }
-
-            int h = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.height);
-            int w = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.width);
-
-            var rect = result[i].CalculateRect(w, h, Screen.orientation);
-
-            resultString = $"{rectName}: {confidence}\n";
-
-            drawRect.CreateRect(rect, colors[i % colors.Length], resultString);
         }
     }
 }

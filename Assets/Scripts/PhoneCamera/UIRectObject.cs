@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.XR.CoreUtils;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RectTransform), typeof(Image))]
 public class UIRectObject : MonoBehaviour
 {
+    [SerializeField] XROrigin _xrOrigin;
+    [SerializeField] RaycastInBox raycastInBox;
     private RectTransform rectangleRectTransform;
     private Image rectangleImage;
     private TMP_Text rectText;
