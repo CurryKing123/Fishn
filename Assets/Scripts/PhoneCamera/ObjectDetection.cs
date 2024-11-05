@@ -56,7 +56,7 @@ public class ObjectDetection : MonoBehaviour
     {
         objectDetectionManager.MetadataInitialized -= ObjectDetectionManagerOnMetadataInitialized;
         objectDetectionManager.ObjectDetectionsUpdated -= ObjectDetectionManagerOnObjectDetectionUpdated;
-        pointCloudManager.enabled = false;
+        
     }
 
     private void ObjectDetectionManagerOnObjectDetectionUpdated(ARObjectDetectionsUpdatedEventArgs args)
