@@ -8,9 +8,9 @@ using UnityEngine.XR.ARFoundation;
 
 public class ObjectDetection : MonoBehaviour
 {
-    [SerializeField] float probabilityThreshold = .5f;
+    [SerializeField] float probabilityThreshold = .4f;
     [SerializeField] private ARObjectDetectionManager objectDetectionManager;
-    //[SerializeField] private ARPointCloudManager pointCloudManager;
+    [SerializeField] private ARPointCloudManager pointCloudManager;
     //[SerializeField] private ARRaycastManager arRaycastManager;
     //[SerializeField] private RaycastInBox raycastInBox;
 
@@ -49,13 +49,14 @@ public class ObjectDetection : MonoBehaviour
     private void ObjectDetectionManagerOnMetadataInitialized(ARObjectDetectionModelEventArgs args)
     {
         objectDetectionManager.ObjectDetectionsUpdated += ObjectDetectionManagerOnObjectDetectionUpdated;
+        pointCloudManager.enabled = true;
     }
 
     private void OnDestroy()
     {
         objectDetectionManager.MetadataInitialized -= ObjectDetectionManagerOnMetadataInitialized;
         objectDetectionManager.ObjectDetectionsUpdated -= ObjectDetectionManagerOnObjectDetectionUpdated;
-        //pointCloudManager.enabled = false;
+        pointCloudManager.enabled = false;
     }
 
     private void ObjectDetectionManagerOnObjectDetectionUpdated(ARObjectDetectionsUpdatedEventArgs args)
