@@ -255,12 +255,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180095402}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ab0e80cee9cc1d44928bfe488dd1e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PointCloudPrefab: {fileID: 3603574903490094514, guid: 8205c46c3acd9ef4fa2585f0674b1588, type: 3}
+  m_PointCloudPrefab: {fileID: 2386303640517764506, guid: 6ceaa4f572dcd614abb23df4146fdb7d, type: 3}
 --- !u!1 &266441163
 GameObject:
   m_ObjectHideFlags: 0
