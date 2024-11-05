@@ -839,7 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   probabilityThreshold: 0.3
   objectDetectionManager: {fileID: 282243405}
-  pointCloudManager: {fileID: 0}
+  pointCloudManager: {fileID: 180095406}
   drawRect: {fileID: 2005475615}
 --- !u!4 &1442184506
 Transform:
