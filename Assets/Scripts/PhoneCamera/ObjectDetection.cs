@@ -68,7 +68,7 @@ public class ObjectDetection : MonoBehaviour
 
             else
             {
-                particles = new ParticleSystem.Particle[pointCloudParticle.main.maxParticles];
+                //particles = new ParticleSystem.Particle[pointCloudParticle.main.maxParticles];
             }
         }
     }
@@ -79,6 +79,7 @@ public class ObjectDetection : MonoBehaviour
         objectDetectionManager.MetadataInitialized += ObjectDetectionManagerOnMetadataInitialized;
 
         pointCloudParticle = pointCloudManager.pointCloudPrefab.GetComponent<ParticleSystem>();
+        particles = new ParticleSystem.Particle[pointCloudParticle.main.maxParticles];
 
         //raycastInBox = new RaycastInBox();
     }
