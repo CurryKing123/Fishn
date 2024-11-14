@@ -56,12 +56,20 @@ public class ObjectDetection : MonoBehaviour
 
         if (pointCloudManager.enabled)
         {
-            for (int i = 0; i < numParticlesAlive; i++)
+            if (particles != null)
             {
-                
-                pointLocation.Add(new Vector3(particles[i].position.x, particles[i].position.y, particles[i].position.z));
+                for (int i = 0; i < numParticlesAlive; i++)
+                {
+
+                    pointLocation.Add(new Vector3(particles[i].position.x, particles[i].position.y, particles[i].position.z));
+                }
+                Debug.Log(pointLocation);
             }
-            Debug.Log(pointLocation);
+
+            else
+            {
+                particles = new ParticleSystem.Particle[pointCloudParticle.main.maxParticles];
+            }
         }
     }
 
