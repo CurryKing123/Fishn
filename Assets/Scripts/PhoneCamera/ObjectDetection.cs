@@ -11,8 +11,15 @@ public class ObjectDetection : MonoBehaviour
     [SerializeField] float probabilityThreshold = .4f;
     [SerializeField] private ARObjectDetectionManager objectDetectionManager;
     [SerializeField] private ARPointCloudManager pointCloudManager;
+
+    private ParticleSystem pointCloudParticle;
+    private ParticleSystem.Particle[] particles;
     //[SerializeField] private ARRaycastManager arRaycastManager;
     //[SerializeField] private RaycastInBox raycastInBox;
+
+    private float countdown = 3f;
+
+    private List<Vector3> pointLocation;
 
 
     private Color[] colors = new[]
@@ -38,10 +45,32 @@ public class ObjectDetection : MonoBehaviour
         canvas = FindObjectOfType<Canvas>();
     }
 
+    private void Update()
+    {
+        if (countdown <= 0f)
+        {
+            pointCloudManager.enabled = false;
+        }
+
+        int numParticlesAlive = pointCloudParticle.GetParticles(particles);
+
+        if (pointCloudManager.enabled)
+        {
+            for (int i = 0; i < numParticlesAlive; i++)
+            {
+                
+                pointLocation.Add(new Vector3(particles[i].position.x, particles[i].position.y, particles[i].position.z));
+            }
+            Debug.Log(pointLocation);
+        }
+    }
+
     private void Start()
     {
         objectDetectionManager.enabled = true;
         objectDetectionManager.MetadataInitialized += ObjectDetectionManagerOnMetadataInitialized;
+
+        pointCloudParticle = pointCloudManager.pointCloudPrefab.GetComponent<ParticleSystem>();
 
         //raycastInBox = new RaycastInBox();
     }
@@ -50,13 +79,14 @@ public class ObjectDetection : MonoBehaviour
     {
         objectDetectionManager.ObjectDetectionsUpdated += ObjectDetectionManagerOnObjectDetectionUpdated;
         pointCloudManager.enabled = true;
+        countdown = 3f;
     }
 
     private void OnDestroy()
     {
         objectDetectionManager.MetadataInitialized -= ObjectDetectionManagerOnMetadataInitialized;
         objectDetectionManager.ObjectDetectionsUpdated -= ObjectDetectionManagerOnObjectDetectionUpdated;
-        
+        countdown -= Time.deltaTime;
     }
 
     private void ObjectDetectionManagerOnObjectDetectionUpdated(ARObjectDetectionsUpdatedEventArgs args)
