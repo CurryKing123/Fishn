@@ -18,6 +18,7 @@ public class ObjectDetection : MonoBehaviour
     //[SerializeField] private RaycastInBox raycastInBox;
 
     private float countdown = 3f;
+    private bool stopPoints;
 
     private List<Vector3> pointLocation;
 
@@ -47,6 +48,11 @@ public class ObjectDetection : MonoBehaviour
 
     private void Update()
     {
+        if (stopPoints)
+        {
+            countdown -= Time.deltaTime;
+        }
+
         if (countdown <= 0f)
         {
             pointCloudManager.enabled = false;
@@ -63,7 +69,7 @@ public class ObjectDetection : MonoBehaviour
                 {
                     pointLocation.Add(new Vector3(particles[i].position.x, particles[i].position.y, particles[i].position.z));
                 }
-                Debug.Log(pointLocation);
+                Debug.Log(pointLocation.ToString());
             }
         }
     }
@@ -85,13 +91,14 @@ public class ObjectDetection : MonoBehaviour
         objectDetectionManager.ObjectDetectionsUpdated += ObjectDetectionManagerOnObjectDetectionUpdated;
         pointCloudManager.enabled = true;
         countdown = 3f;
+        stopPoints = false;
     }
 
     private void OnDestroy()
     {
         objectDetectionManager.MetadataInitialized -= ObjectDetectionManagerOnMetadataInitialized;
         objectDetectionManager.ObjectDetectionsUpdated -= ObjectDetectionManagerOnObjectDetectionUpdated;
-        countdown -= Time.deltaTime;
+        stopPoints = true;
     }
 
     private void ObjectDetectionManagerOnObjectDetectionUpdated(ARObjectDetectionsUpdatedEventArgs args)
