@@ -70,9 +70,9 @@ public class ObjectDetection : MonoBehaviour
                     Vector3 particlePosition = particles[i].position;
                     pointLocation.Add(particlePosition);
                     //pointLocation.Add(new Vector3(particlePosition.x, particlePosition.y, particlePosition.z));
-                    //Debug.Log(particlePosition);
+                    Debug.Log(particlePosition);
                 }
-                Debug.Log(pointLocation);
+                //Debug.Log(pointLocation);
             }
         }
     }
@@ -91,7 +91,6 @@ public class ObjectDetection : MonoBehaviour
     private void ObjectDetectionManagerOnMetadataInitialized(ARObjectDetectionModelEventArgs args)
     {
         objectDetectionManager.ObjectDetectionsUpdated += ObjectDetectionManagerOnObjectDetectionUpdated;
-        pointCloudManager.enabled = true;
         countdown = 3f;
         stopPoints = false;
     }
@@ -105,6 +104,8 @@ public class ObjectDetection : MonoBehaviour
 
     private void ObjectDetectionManagerOnObjectDetectionUpdated(ARObjectDetectionsUpdatedEventArgs args)
     {
+        pointCloudManager.enabled = true;
+
         string resultString = "";
         float confidence = 0;
         string rectName = "";
