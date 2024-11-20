@@ -79,6 +79,8 @@ public class ObjectDetection : MonoBehaviour
 
     private void Start()
     {
+        objectDetectionManager.MetadataInitialized += ObjectDetectionManagerOnMetadataInitialized;
+
         pointCloudParticle = pointCloudManager.pointCloudPrefab.GetComponent<ParticleSystem>();
         particles = new ParticleSystem.Particle[pointCloudParticle.main.maxParticles];
         pointLocation = new List<Vector3>();
