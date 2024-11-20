@@ -71,6 +71,7 @@ public class ObjectDetection : MonoBehaviour
                     pointLocation.Add(particlePosition);
                     //pointLocation.Add(new Vector3(particlePosition.x, particlePosition.y, particlePosition.z));
                     Debug.Log(particlePosition);
+                    Debug.Log(numParticlesAlive);
                 }
                 //Debug.Log(pointLocation);
             }
@@ -134,7 +135,7 @@ public class ObjectDetection : MonoBehaviour
             if (rectName == "fish")
             {
                 pointCloudManager.enabled = true;
-                
+
                 int h = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.height);
                 int w = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.width);
 
