@@ -68,7 +68,9 @@ public class ObjectDetection : MonoBehaviour
                 for (int i = 0; i < numParticlesAlive; i++)
                 {
                     Vector3 particlePosition = particles[i].position;
-                    pointLocation.Add(new Vector3(particlePosition.x, particlePosition.y, particlePosition.z));
+                    pointLocation.Add(particlePosition);
+                    //pointLocation.Add(new Vector3(particlePosition.x, particlePosition.y, particlePosition.z));
+                    //Debug.Log(particlePosition);
                 }
                 Debug.Log(pointLocation);
             }
@@ -77,9 +79,6 @@ public class ObjectDetection : MonoBehaviour
 
     private void Start()
     {
-        objectDetectionManager.enabled = true;
-        objectDetectionManager.MetadataInitialized += ObjectDetectionManagerOnMetadataInitialized;
-
         pointCloudParticle = pointCloudManager.pointCloudPrefab.GetComponent<ParticleSystem>();
         particles = new ParticleSystem.Particle[pointCloudParticle.main.maxParticles];
         pointLocation = new List<Vector3>();
