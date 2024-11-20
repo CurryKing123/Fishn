@@ -5,8 +5,6 @@ using UnityEngine.XR.ARFoundation;
 
 public class ParticleMeasurement : MonoBehaviour
 {
-    [SerializeField] private ARPointCloudManager pointCloudManager;
-
     private ParticleSystem pointCloudParticle;
     private ParticleSystem.Particle[] particles;
     private List<Vector3> pointLocation;
@@ -25,8 +23,6 @@ public class ParticleMeasurement : MonoBehaviour
         
         if (particles != null)
         {
-            if (pointCloudManager.enabled)
-            {
                 for (int i = 0; i < numParticlesAlive; i++)
                 {
                     Vector3 particlePosition = particles[i].position;
@@ -36,7 +32,6 @@ public class ParticleMeasurement : MonoBehaviour
                 }
                 //Debug.Log(pointLocation);
                 Debug.Log(numParticlesAlive);
-            }
         }
     }
 }
