@@ -51,31 +51,32 @@ public class ObjectDetection : MonoBehaviour
         if (stopPoints)
         {
             countdown -= Time.deltaTime;
+
+            if (countdown <= 0f)
+            {
+                pointCloudManager.enabled = false;
+            }
         }
 
-        if (countdown <= 0f)
-        {
-            pointCloudManager.enabled = false;
-        }
 
         int numParticlesAlive = pointCloudParticle.GetParticles(particles);
 
 
-        if (particles != null)
-        {
-            if (pointCloudManager.enabled)
-            {
-                for (int i = 0; i < numParticlesAlive; i++)
-                {
-                    Vector3 particlePosition = particles[i].position;
-                    pointLocation.Add(particlePosition);
-                    //pointLocation.Add(new Vector3(particlePosition.x, particlePosition.y, particlePosition.z));
-                    Debug.Log(particlePosition);
-                }
-                //Debug.Log(pointLocation);
-                Debug.Log(numParticlesAlive);
-            }
-        }
+        //if (particles != null)
+        //{
+        //    if (pointCloudManager.enabled)
+        //    {
+        //        for (int i = 0; i < numParticlesAlive; i++)
+        //        {
+        //            Vector3 particlePosition = particles[i].position;
+        //            pointLocation.Add(particlePosition);
+        //            //pointLocation.Add(new Vector3(particlePosition.x, particlePosition.y, particlePosition.z));
+        //            Debug.Log(particlePosition);
+        //        }
+        //        //Debug.Log(pointLocation);
+        //        //Debug.Log(numParticlesAlive);
+        //    }
+        //}
     }
 
     private void Start()
