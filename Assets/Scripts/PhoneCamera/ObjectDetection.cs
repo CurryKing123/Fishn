@@ -104,8 +104,6 @@ public class ObjectDetection : MonoBehaviour
 
     private void ObjectDetectionManagerOnObjectDetectionUpdated(ARObjectDetectionsUpdatedEventArgs args)
     {
-        pointCloudManager.enabled = true;
-
         string resultString = "";
         float confidence = 0;
         string rectName = "";
@@ -135,6 +133,8 @@ public class ObjectDetection : MonoBehaviour
 
             if (rectName == "fish")
             {
+                pointCloudManager.enabled = true;
+                
                 int h = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.height);
                 int w = Mathf.FloorToInt(canvas.GetComponent<RectTransform>().rect.width);
 
