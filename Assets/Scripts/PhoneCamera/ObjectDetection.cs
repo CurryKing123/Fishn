@@ -68,8 +68,8 @@ public class ObjectDetection : MonoBehaviour
                 for (int i = 0; i < numParticlesAlive; i++)
                 {
                     pointLocation.Add(new Vector3(particles[i].position.x, particles[i].position.y, particles[i].position.z));
-                    Debug.Log(pointLocation);
                 }
+                Debug.Log(pointLocation);
             }
         }
     }
