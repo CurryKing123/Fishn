@@ -14,13 +14,9 @@ public class ObjectDetection : MonoBehaviour
 
     private ParticleSystem pointCloudParticle;
     private ParticleSystem.Particle[] particles;
-    //[SerializeField] private ARRaycastManager arRaycastManager;
-    //[SerializeField] private RaycastInBox raycastInBox;
 
     private float countdown = 3f;
     private bool stopPoints;
-
-    private List<Vector3> pointLocation;
 
 
     private Color[] colors = new[]
@@ -34,8 +30,6 @@ public class ObjectDetection : MonoBehaviour
         Color.cyan,
         Color.black
     };
-
-    //public static event Action<(string category, Vector2 rectPosition)> fishPosition;
 
     [SerializeField] private DrawRect drawRect;
 
@@ -60,23 +54,6 @@ public class ObjectDetection : MonoBehaviour
 
 
         int numParticlesAlive = pointCloudParticle.GetParticles(particles);
-
-
-        //if (particles != null)
-        //{
-        //    if (pointCloudManager.enabled)
-        //    {
-        //        for (int i = 0; i < numParticlesAlive; i++)
-        //        {
-        //            Vector3 particlePosition = particles[i].position;
-        //            pointLocation.Add(particlePosition);
-        //            //pointLocation.Add(new Vector3(particlePosition.x, particlePosition.y, particlePosition.z));
-        //            Debug.Log(particlePosition);
-        //        }
-        //        //Debug.Log(pointLocation);
-        //        //Debug.Log(numParticlesAlive);
-        //    }
-        //}
     }
 
     private void Start()
@@ -85,9 +62,6 @@ public class ObjectDetection : MonoBehaviour
 
         pointCloudParticle = pointCloudManager.pointCloudPrefab.GetComponent<ParticleSystem>();
         particles = new ParticleSystem.Particle[pointCloudParticle.main.maxParticles];
-        pointLocation = new List<Vector3>();
-
-        //raycastInBox = new RaycastInBox();
     }
 
     private void ObjectDetectionManagerOnMetadataInitialized(ARObjectDetectionModelEventArgs args)
@@ -146,12 +120,6 @@ public class ObjectDetection : MonoBehaviour
                 resultString = $"{rectName}: {confidence}\n";
 
                 drawRect.CreateRect(rect, colors[i % colors.Length], resultString);
-
-                //raycastInBox.RaycastFromDetectedPosition(rect.position);
-
-                //pointCloudManager.enabled = true;
-
-                //fishPosition?.Invoke((categoryToDisplay.CategoryName, rect.position));
             }
         }
     }

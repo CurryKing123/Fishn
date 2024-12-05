@@ -8,6 +8,9 @@ public class ParticleMeasurement : MonoBehaviour
     private ParticleSystem pointCloudParticle;
     private ParticleSystem.Particle[] particles;
     private List<Vector3> pointLocation;
+    private bool fishCountdown = false;
+    private float countdownMax = 5f;
+    private float countdownTimer;
 
     void Start()
     {
@@ -29,9 +32,40 @@ public class ParticleMeasurement : MonoBehaviour
                     pointLocation.Add(particlePosition);
                     //pointLocation.Add(new Vector3(particlePosition.x, particlePosition.y, particlePosition.z));
                     Debug.Log(particlePosition);
+                    if (fishCountdown != true)
+                    {
+                        fishCountdown = true;
+                        countdownTimer = countdownMax;
+                        StartCountdown();
+                    }
                 }
                 //Debug.Log(pointLocation);
-                Debug.Log(numParticlesAlive);
+        }
+        else
+        {
+            fishCountdown = false;
+        }
+    }
+
+    private IEnumerator StartCountdown()
+    {
+        if (countdownTimer > 0)
+        {
+            if (fishCountdown)
+            {
+                countdownTimer --;
+                yield return new WaitForSeconds(1.0f);
+            }
+            else {yield break;}
+        }
+
+        else
+        {
+            foreach (Vector3 pos in pointLocation)
+            {
+                float minPos = Mathf.Min(pos.x);
+            }
+            //Foreach loop on point positions
         }
     }
 }
