@@ -63,7 +63,8 @@ public class ParticleMeasurement : MonoBehaviour
         {
             foreach (Vector3 pos in pointLocation)
             {
-                float minPos = Mathf.Min(pos.x);
+                float minPos;
+                float maxPos;
             }
             //Foreach loop on point positions
         }
